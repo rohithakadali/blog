@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from blog.models import Blog, Category, Comment
 from django.db.models import Q
 from django.http import HttpResponseRedirect
-# Create your views here.
+
 def posts_by_category(request,category_id):
     posts=Blog.objects.filter(status='Published',category=category_id)
     #try:
