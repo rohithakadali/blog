@@ -18,15 +18,15 @@ def posts_by_category(request,category_id):
                             
 def blogs(request,slug):
     single_blog=get_object_or_404(Blog,slug=slug,status='Published')
-    if request.method=="POST":
+    if request.method =="POST":
         comment=Comment()
         comment.user=request.user
-        comment_blog=single_blog
-        comment_comment=request.POST['comment']
+        comment.blog=single_blog
+        comment.comment=request.POST['comment']
         comment.save()
         return HttpResponseRedirect(request.path_info)
     comments=Comment.objects.filter(blog=single_blog)
-    comment_count=comment.count()
+    comment_count=comments.count()
     context={
         'single_blog':single_blog,
         'comments':comments,

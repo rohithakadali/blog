@@ -40,8 +40,13 @@
                     {% endif %}
                     <br>
                     <div class="form-group">
-                        <textarea name="comment" class="form-control" placeholder="Write Your Comments"></textarea>
-                        <input type="submit" value="submit" class="btn btn-primary mt-2">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <textarea name="comment" class="form-control" placeholder="Write Your Comments"></textarea>
+                                <input type="submit" value="submit" class="btn btn-primary mt-2">
+                            </div>
+                        </form>
                     </div>
                 </section>
             </article>
